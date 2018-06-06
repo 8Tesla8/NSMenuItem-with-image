@@ -67,5 +67,14 @@ namespace MenuIcon {
             if (item is MenuItem mi)
                 mi.SetWhiteImg();
         }
+
+
+        public override void MenuDidClose(NSMenu menu) {
+            if (_prevMenuItem != null &&
+               _prevMenuItem is MenuItem pmi)
+                pmi.SetBlackImg();
+
+            _prevMenuItem = null;
+        }
     }
 }
